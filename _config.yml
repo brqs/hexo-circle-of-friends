@@ -1,6 +1,6 @@
 setting:
   request: # 网络请求设置
-    timeout: 50 # gitee友链配置
+    timeout: 20 # gitee友链配置
     ssl: false  # gitee友链配置
 
   gitee_friends_links: # gitee友链配置
