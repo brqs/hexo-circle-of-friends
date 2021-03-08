@@ -10,7 +10,7 @@ def sakura_get_friendlink(friendpage_link, friend_poor):
     soup = BeautifulSoup(result, 'html.parser')
     main_content = soup.find_all('li', {"class": "link-item"})
     for item in main_content:
-        img = item.find('img').get('src')
+        img = item.find('img').get('data-src')
         link = item.find('a').get('href')
         name = item.find('span').text
         if "#" in link:
