@@ -10,7 +10,7 @@ from request_data import request
 from theme.butterfly import butterfly
 from theme.matery import matery
 from theme.volantis import volantis
-from theme.sakura import Sakura
+from theme.sakura import sakura
 import yaml
 
 def main():
@@ -522,6 +522,10 @@ def main():
             volantis.volantis_get_friendlink(friendpage_link,friend_poor)
         except:
             print('不是volantis主题或未配置gitee友链')
+        try:
+            sakura.sakura_get_friendlink(friendpage_link,friend_poor)
+        except:
+            print('不是sakura主题')
         friend_poor = delete_same_link(friend_poor)
         friend_poor = block_link(friend_poor)
         print('当前友链数量',len( friend_poor))
