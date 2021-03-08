@@ -549,8 +549,7 @@ def main():
                 if error == 'true':
                     error = volantis.get_last_post_from_volantis(item,post_poor)
                 if error == 'true':
-                    error = sakura.get_last_post_from_sakura(item,post_poor)
-                if error == 'true':
+                    
                     print("-----------获取主页信息失败，采取sitemap策略----------")
                     error = sitmap_get(item)
             except Exception as e:
