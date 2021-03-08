@@ -11,6 +11,7 @@ from theme.butterfly import butterfly
 from theme.matery import matery
 from theme.volantis import volantis
 from theme.sakura import sakura
+from theme.cuteen import cuteen
 import yaml
 
 def main():
@@ -526,6 +527,9 @@ def main():
             sakura.sakura_get_friendlink(friendpage_link,friend_poor)
         except:
             print('不是sakura主题')
+        cuteen.cuteen_get_friendlink(friendpage_link,friend_poor)
+        except:
+            print('不是cuteen主题')
         friend_poor = delete_same_link(friend_poor)
         friend_poor = block_link(friend_poor)
         print('当前友链数量',len( friend_poor))
