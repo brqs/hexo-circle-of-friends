@@ -527,7 +527,8 @@ def main():
             sakura.sakura_get_friendlink(friendpage_link,friend_poor)
         except:
             print('不是sakura主题')
-        cuteen.cuteen_get_friendlink(friendpage_link,friend_poor)
+        try:
+            cuteen.cuteen_get_friendlink(friendpage_link,friend_poor)
         except:
             print('不是cuteen主题')
         friend_poor = delete_same_link(friend_poor)
