@@ -1,6 +1,6 @@
 setting:
   request: # 网络请求设置
-    timeout: 20 # gitee友链配置
+    timeout: 10 # gitee友链配置
     ssl: false  # gitee友链配置
 
   gitee_friends_links: # gitee友链配置
@@ -28,9 +28,8 @@ setting:
   block_chars: # 屏蔽sitemap获取标题的分割字符
     - '|'
     - '::'
-    - '-'
     - '·'
     - '绒布球'
 
-  block_site: # 屏蔽站点
-    - https://www.hack-gov.com.cn/
+  block_site: # 屏蔽站点(这个配置项需要在每条链接上加引号（单双引号均可）)
+    - 'https://noionion.top/'

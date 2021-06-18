@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Author    : RaXianch
-# CreatDATE : 2021/3/6
-# CreatTIME : 16:02 
+# CreatDATE : 2021/3/8
+# CreatTIME : 19:40 
 # Blog      : https://blog.raxianch.moe/
 # Github    : https://github.com/DeSireFire
 __author__ = 'RaXianch'
+"""
+网络请求器
+"""
 
 import requests
 import chardet
-import yaml
-import os.path
 from urllib.parse import unquote, urlparse
 from handlers.coreSettings import configs as config
 from request_data.middleware import RandomUserAgentMiddleware
@@ -18,10 +19,13 @@ from request_data.middleware import contentChardetMiddleware
 requests.packages.urllib3.disable_warnings()
 
 
-def get_data(link):
+def get_data(link, headers=None, timeout=None, verify=False):
     """
     获取网页
-    :param link: 请求的网页地址
+    :param verify: bool 开启verify验证
+    :param timeout: int 请求超时
+    :param headers: dict 请求头
+    :param link: str 请求的网页地址
     :return: str, result
     """
     # 载入配置文件
@@ -32,13 +36,13 @@ def get_data(link):
     # 链接解析
     urlInfo = urlparse(link)
     # 请求信息
-    timeout = config.yml['setting']['request']['timeout']
-    verify = config.yml['setting']['request']['ssl']
+    timeout = config.TIMEOUT if not timeout else timeout
+    verify = config.SSL if not verify else verify
     headers = {
         'Accept-Encoding': 'deflate',
         "Referer": f"{urlInfo.scheme}://{urlInfo.netloc}",
         'User_Agent': ua.roll_ua()
-    }
+    } if not headers else headers
     # 回调
     result = "error"
     try:
